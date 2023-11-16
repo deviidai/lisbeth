@@ -1,0 +1,20 @@
+.btnPlay{
+  display:block;
+  margin:auto;
+  background:url("http://www.lexus.com/lexus-share/v2/img/play-button.svg");
+  background-size:160px 160px;
+  background-position:50% 50%;
+  background-repeat:no-repeat;
+  width:200px;
+  height:200px;
+  border:9px dashed rgba(104,172,174,1);
+  border-radius:80%;
+  box-sizing:border-box;
+  transition:0.125s ease;
+  }
+
+.btnPlay:hover{background-size:180px 180px;
+  background-position:50% 50%;
+  background-repeat:no-repeat;
+  border:20px solid rgba(87,139,141,0.5);
+}

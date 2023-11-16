@@ -1,0 +1,430 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafica</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/estilos.css">
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            margin-left: 0;
+            margin-top: -72px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            cursor: pointer;
+            position: fixed;
+        }
+
+        li {
+            position: relative;
+            transform: translateX(-103px);
+            background-color: rgb(252, 206, 206);
+            list-style: none;
+            padding: 10px 0;
+            transition: .5s;
+            width: 160px;
+            border-radius: 0 200px 200px 0;
+        }
+
+        li:hover:nth-child(1) {
+            background: #fe18fe;
+        }
+
+        li:hover:nth-child(2) {
+            background: #fe1818;
+        }
+
+        li:hover:nth-child(3) {
+            background: #3a18fe;
+        }
+
+        li:hover:nth-child(4) {
+            background: #18dffe;
+        }
+
+        li:hover {
+            transform: translateX(0);
+        }
+
+        a {
+            font-weight: bold;
+            color: aliceblue;
+            font-family: sans-serif;
+            text-decoration: none;
+            padding-left: 10px;
+        }
+
+        i {
+            margin-left: 14px;
+            padding: 10px 10px;
+            border-radius: 50%;
+            color: rgb(15, 12, 9);
+            background: #FFFFF0;
+        }
+
+        .icon {
+            font-size: 20px;
+        }
+
+        .gmail {
+            position: relative;
+            left: 30px;
+        }
+
+        .twitter {
+            position: relative;
+            left: 23px;
+        }
+
+        .youtuber {
+            position: relative;
+            left: 30px;
+        }
+
+        .instagram {
+            position: relative;
+            left: 6px;
+        }
+
+        canvas {
+            margin-top: -7em;
+        }
+    </style>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+            /* Añadido para posicionar el canvas y el botón relativos al cuerpo de la página */
+        }
+
+        canvas {
+            margin-top: 8px;
+            border: 1px solid #f0e1e1;
+            /* Solo para visualización, puedes ajustar según tus necesidades */
+        }
+
+        #playButton {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #playButton.hidden {
+            display: none;
+        }
+
+        .boton {
+            text-align: center;
+            text-decoration: none;
+            font-family: 'Helvetica Neue',
+                Helvetica, sans-serif;
+            display: inline-block;
+            color: #FFF;
+            background: #7F8C8D;
+            padding: 15px 40px;
+            white-space: nowrap;
+            margin: 10px 5px;
+            -webkit-transition: all 0.2s ease-in-out;
+            -ms-transition: all 0.2s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .azul {
+            background: #3498DB;
+        }
+
+        .azul:hover {
+            background: #2980B9;
+        }
+
+        .rojo {
+            background: #b93329;
+        }
+
+        .contenedor {
+            text-align: center;
+            /* Alinea los elementos hijos al centro */
+        }
+
+        .boto {
+            display: inline-block;
+            /* Hace que los botones sean elementos en línea */
+            margin: 5px;
+            /* Espaciado entre los botones */
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="contenedor">
+        <button class="boton  azul" id="playButton" onclick="toggleVisibility()">Play</button>
+
+    </div>
+
+
+
+    <script src=" js/main.js" type="module"></script>
+
+    <input type="checkbox" id="btn-modal">
+
+    <div class="container-modal">
+        <div class="content-modal">
+
+            <h1>
+                <center><img src="./image/ghh.png" alt="" width="660"></center>
+            </h1>
+
+            <hr>
+            <hr>
+            <figure>
+                <img src="./image/msg1790488113-13387.jpg" alt="" width="240" height="340">
+                <div class="capa">
+                    <h3>
+                        <font size=6 face="Comic Sans MS,arial,verdana">ARTE NATIVO
+                    </h3>
+                    </font>
+                    <P>Es una de las agrupaciones de centenares de mujeres campesinas artesanas que se
+                        desenvuelve
+                        en la
+                        ciudad de Potosí, cuya
+                        fuente de ingreso se halla en el hilado y tejido a mano de la fina lana de sus
+                        ovejas,
+                        llamas y
+                        alpacas. Trabajo que les
+                        permite, además de mejorar la economía de sus hogares (muy pobres), revalorizar su
+                        cultura y
+                        elevar su autoestima.</P>
+                </div>
+            </figure>
+            <p>
+                <font color="white" face="Comic Sans MS,arial">El departamento de Potosí es famoso por sus
+                    recursos
+                    minerales, sin embargo, es uno
+                    de los departamentos
+                    más pobres de
+                    Bolivia, sus habitantes subsisten en condiciones muy precarias. “El Molino”, ubicado en
+                    este
+                    departamento (Potosí), es
+                    un centro parroquial compuesto por las 30 comunidades más pobres del mundo
+                    . Es una región a 4000 metros de altura, cuyas condiciones climáticas son hostiles,
+                    carecen de
+                    una
+                    buena
+                    infraestructura
+                    caminera y de medios de comunicación.
+
+                    La región está organizada en ayllus (forma de comunidad andina) y todavía mantiene
+                    vestigios de
+                    las
+                    culturas quechua y
+                    aimara, motivo por el cual el centro de capacitación campesina “El Molino” promueve, con
+                    mucho
+                    éxito, la
+                    recuperación de
+                    las formas de expresión propias del lugar. Una de ellas es el arte textil.</font>
+            </p>
+            <hr>
+            <hr>
+
+            <div class="btn-cerrar">
+                <label for="btn-modal">Cerrar</label>
+            </div>
+        </div>
+        <label for="btn-modal" class="cerrar-modal"></label>
+    </div> <br><br>
+
+    <input type="checkbox" id="bbtn-modal">
+    <div class="ccontainer-modal">
+        <div class="ccontent-modal">
+
+            <h1>
+                <center><img src="./image/DDF.png" alt="" width="600"></center>
+            </h1>
+
+            <hr>
+            <hr>
+            <figure>
+                <img src="./image/photo1692205703.jpeg" alt="" width="240" height="340">
+                <div class="capaa">
+                    <h3>
+                        <font size=4 face="Comic Sans MS,arial,verdana">DATO
+                    </h3>
+                    </font>
+                    <P>En los textiles aimaras, como en su arquitectura, aparece el águila bicéfala (símbolo
+                        de
+                        la
+                        casa de Austria que pervivió
+                        pese al cambio de dinastía) otra figura es la del mono, que era conocido como Dios
+                        de
+                        las
+                        construcciones y edificios.
+
+                        Pero un elemento mítico que se creía puramente occidental, es la figura de la
+                        “sirena”,
+                        que
+                        está relacionada a las
+                        leyendas del lago Titicaca.
+
+                        Sobrevive como elemento de la arquitectura, la tapicería y el cumbis.</P>
+                </div>
+            </figure>
+            <p>
+                <font color="white" face="Comic Sans MS,arial">Los antepasados andinos vibran a través del
+                    textil.
+                    No hay un punto concreto de inicio, lo cierto es que los pueblos
+                    indígenas se relacionaron para influenciarse entre si, se alimentaron de símbolos, de
+                    creencias
+                    míticas y religiosas, de
+                    costumbres, sueños, misterios, del devenir diario y de los procesos de cambio.
+
+                    La textilería refleja el encuentro con otras culturas, el sometimiento al dominio
+                    español y
+                    la
+                    permanencia de un
+                    lenguaje propio que si bien admitió elementos extranjeros conservó la esencia, por lo
+                    tanto
+                    se
+                    dice que en la técnica y
+                    en el arte del tejido indígena, existen “reminiscencias anteriores y añadidos
+                    posteriores”.
+                    Las primera influencia del textil empezó mucho antes de la llegada española
+
+                    En todo el territorio antes mencionado existían etnias como los Lupacas, Chillacas,
+                    Urus,
+                    Charcas, Caracaras, los
+                    Chichas, Mitmas, Callawayas y otras tantas. En permanente contacto se influenciaron
+                    entre
+                    si,
+                    combatieron unas con otras
+                    y algunas se integraron a grupos más grandes. Elementos que se distinguen en el textil
+                </font>
+            </p>
+            <hr>
+            <hr>
+
+            <div class="bbtn-cerrar">
+                <label for="bbtn-modal">Cerrar</label>
+            </div>
+        </div>
+        <label for="bbtn-modal" class="ccerrar-modal"></label>
+    </div> <br><br>
+    </div>
+
+    <input type="checkbox" id="bbbtn-modal">
+    <div class="cccontainer-modal">
+        <div class="cccontent-modal">
+
+            <h1>
+                <center><img src="./image/hh.png" alt="" width="680"></center>
+            </h1>
+
+            <hr>
+            <hr>
+            <figure>
+                <img src="./image/msg1790488113-13386.jpg" alt="" width="240" height="340">
+                <div class="capaaa">
+                    <h3>
+                        <font size=4 face="Comic Sans MS,arial,verdana">MATERIAL
+                    </h3>
+                    </font>
+                    <P>• Telar</P>
+                    <p>• Hilo Mouline, nylon, u otro</p>
+                    <p>• Cuentas de colores</p>
+                    <p>• Aguja de enfilado</p>
+                    <p>• Cierre para pulsera</p>
+                    <p>• Tijeras</p>
+                    <p> • Pegamento (opcional)</P>
+                </div>
+            </figure>
+            <p>
+                <font color="white" face="Comic Sans MS,arial" size=2>1. Se fijan los hilos base en el telar.
+                    Debe
+                    colocarse un hilo más que el número de cuentas que vayamos a poner en cada
+                    vuelta. El ejemplo tiene 8 cuentas y 9 hilos. Fijar los hilos a los tornillos de los
+                    cabezales
+                    del telar con nudos, de
+                    modo tal que queden paralelos y tensos. Al final se pueden tensar un poco más girando los
+                    rodillos de las puntas.
+
+                    2. Enhebramos las cuentas y podemos dejar sin rematar el extremo para atar al final o
+                    anudarlo
+                    sobre el hilo del borde
+                    del telar. Se puede poner pegamento en el orificio de las cuentas de los extremos, pero eso
+                    al
+                    final de la fila, cuando
+                    ya no pasaremos más hilos por ellas.
+
+                    3. Pasamos el hilo con las cuentas por debajo del telar, de modo que cada cuenta quede en el
+                    hueco entre hilos. Luego lo
+                    empujamos hacia arriba, y con la aguja todavía enhebrada, pasarla por la parte superior de
+                    las
+                    cuentas, de modo de
+                    asegurarlas al telar.
+                    4. Repetir el procedimiento para cada fila de cuentas. 5. Para el diseño, se va cambiando la
+                    disposición de las cuentas
+                    de modo que formen un zigzag. Pero puede elegirse cualquiera que la imaginación encuentre.
+                    6. Se
+                    sigue hasta lograr el
+                    largo deseado o tener todo el telar cubierto. Si se necesita una tira más larga se hacen
+                    varias
+                    piezas y se unen
+                    cosiéndolas al final.
+                </font>
+            </p>
+            <hr>
+            <hr>
+
+            <div class="bbbtn-cerrar">
+                <label for="bbbtn-modal">Cerrar</label>
+            </div>
+        </div>
+        <label for="bbbtn-modal" class="cccerrar-modal"></label>
+    </div> <br><br>
+    </div>
+    </div>
+    <div>
+        <ul>
+            <li>
+                <label for="btn-modal" style="color: #fff;">
+                    Historia &nbsp &nbsp &nbsp
+                </label>
+                <input type="checkbox" id="btn-modal"><img src="image/info-01.png" alt=""
+                    style="width: 25px; height: 25px;"></i>
+            </li>
+            <li>
+                <label for="bbtn-modal" style="color: #fff;">
+                    Historia &nbsp &nbsp &nbsp
+                </label>
+                <input type="checkbox" id="bbtn-modal"><img src="image/info-02.png" alt=""
+                    style="width: 25px; height: 25px;"></i>
+            </li>
+            <li>
+                <label for="bbbtn-modal" style="color: #fff;">
+                    Historia &nbsp &nbsp &nbsp
+                </label>
+                <input type="checkbox" id="bbbtn-modal"><img src="image/info-03.png" alt=""
+                    style="width: 25px; height: 25px;">
+            </li>
+        </ul>
+    </div>
+</body>

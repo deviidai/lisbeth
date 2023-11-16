@@ -1,0 +1,22 @@
+
+#im{
+    
+    width: 480px;
+    height: 350px;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 1px 5px 25px rgba(0, 0, 0, 0.082);
+    margin: 15px;
+    }
+    #im img{
+    
+    width: 500px;
+    height: 150%;
+    transition: 2s;
+    
+    }
+    #im img:hover{
+    transform: translateX(-30%);
+    filter: brightness(80%);
+    }
